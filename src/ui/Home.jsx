@@ -1,9 +1,4 @@
-import { useLoaderData } from "react-router-dom";
-import { getMenu } from "../services/apiRestaurant";
-
 function Home() {
-  const data = useLoaderData();
-  console.log(data);
   return (
     <div>
       <h1>
@@ -13,10 +8,5 @@ function Home() {
       </h1>
     </div>
   );
-}
-
-export async function loader() {
-  const data = await getMenu();
-  return data;
 }
 export default Home;
