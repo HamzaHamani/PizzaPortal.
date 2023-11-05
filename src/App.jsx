@@ -8,10 +8,13 @@ import AppLayout from "./ui/AppLayout";
 
 const router = createBrowserRouter([
   {
+    path: "/",
     element: <AppLayout />,
+    //👇 THIS IS HOW WE ADD NESTED ROUTES
     children: [
       {
-        path: "/",
+        //home gonna be defualt children when AppLayout load
+        index: true,
         element: <Home />,
       },
       {
