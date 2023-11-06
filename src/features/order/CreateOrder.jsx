@@ -1,5 +1,7 @@
 // import { useState } from "react";
 
+import { Form, useActionData } from "react-router-dom";
+
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
@@ -34,12 +36,13 @@ function CreateOrder() {
   // const [withPriority, setWithPriority] = useState(false);
   const cart = fakeCart;
   cart;
+  const data = useActionData();
 
   return (
     <div>
       <h2>Ready to order? Lets go!</h2>
 
-      <form>
+      <Form method="post">
         <div>
           <label>First Name</label>
           <input type="text" name="customer" required />
@@ -73,9 +76,15 @@ function CreateOrder() {
         <div>
           <button>Order now</button>
         </div>
-      </form>
+      </Form>
     </div>
   );
 }
 
+export async function CreateOrderAction({ request }) {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+
+  return data;
+}
 export default CreateOrder;
