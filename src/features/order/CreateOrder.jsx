@@ -6,7 +6,7 @@ import { createOrder } from "../../services/apiRestaurant";
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
-    str
+    str,
   );
 isValidPhone;
 const fakeCart = [
@@ -79,7 +79,10 @@ function CreateOrder() {
         </div>
 
         <div>
-          <button disabled={isLoading}>
+          <button
+            disabled={isLoading}
+            className="text-sto800 inline-block rounded-l bg-yellow-400 px-4 py-3 font-semibold uppercase tracking-wide  transition-all duration-300 hover:bg-yellow-300 focus:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed "
+          >
             {isLoading ? "Packing order" : "Order Now"}
           </button>
         </div>
