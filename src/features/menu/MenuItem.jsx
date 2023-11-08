@@ -19,7 +19,7 @@ function MenuItem({ pizza }) {
           soldOut ? "opacity-70 grayscale" : ""
         }  h-[6rem] sm:h-[8rem] `}
       />
-      <div className="flex grow flex-col gap-3 ">
+      <div className="flex grow flex-col gap-3 pt-0.5 ">
         <p className="text-lg font-medium">{name}</p>
         <p className="text-sm capitalize italic text-stone-500">
           {ingredients.join(", ")}
