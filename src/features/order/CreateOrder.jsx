@@ -63,12 +63,7 @@ function CreateOrder() {
         <div>
           <label>Address</label>
           <div>
-            <input
-              className="w-full rounded-full border  border-stone-200  px-4  py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-opacity-60 md:px-6 md:py-3"
-              type="text"
-              name="address"
-              required
-            />
+            <input className="input" type="text" name="address" required />
           </div>
         </div>
 
@@ -86,7 +81,7 @@ function CreateOrder() {
         </div>
 
         <div>
-          <Button disabled={isLoading}>
+          <Button type={"primary"} disabled={isLoading}>
             {isLoading ? "Packing order" : "Order Now"}
           </Button>
         </div>
