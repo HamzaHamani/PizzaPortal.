@@ -81,7 +81,7 @@ function CreateOrder() {
         <div>
           <button
             disabled={isLoading}
-            className="text-sto800 inline-block rounded-l bg-yellow-400 px-4 py-3 font-semibold uppercase tracking-wide  transition-all duration-300 hover:bg-yellow-300 focus:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed "
+            className="inline-block rounded-l bg-yellow-400 px-4 py-3 font-semibold uppercase tracking-wide text-stone-800  transition-all duration-300 hover:bg-yellow-300 focus:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed "
           >
             {isLoading ? "Packing order" : "Order Now"}
           </button>
