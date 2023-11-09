@@ -4,8 +4,10 @@ import { updateName } from "../features/user/userSlice";
 
 function Button({ children, disabled, to, type, onclick }) {
   const dispatch = useDispatch();
-  const base = ` inline-block rounded-full bg-yellow-400  font-bold uppercase tracking-wide  text-stone-800 transition-all duration-300 hover:bg-yellow-300 focus:bg-yellow-300 focus:outline-none focus:ring  focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed sm:px-6 ${
-    disabled ? "bg-stone-300 hover:bg-stone-300" : ""
+  const base = ` inline-block rounded-full   font-bold uppercase tracking-wide  text-stone-800 transition-all duration-300 focus:bg-yellow-300 focus:outline-none focus:ring  focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed sm:px-6 ${
+    disabled
+      ? " bg-stone-300  hover:bg-stone-300"
+      : " bg-yellow-400 hover:bg-yellow-300 "
   } `;
 
   const styles = {

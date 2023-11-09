@@ -16,8 +16,6 @@ function CreateUser() {
     navigate("/menu");
   }
 
- 
-
   return (
     <form onSubmit={handleSubmit}>
       <p className="mb-4 text-base tracking-wide text-stone-600 md:text-lg ">
