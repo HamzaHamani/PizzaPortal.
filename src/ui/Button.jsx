@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { updateName } from "../features/user/userSlice";
 
@@ -19,10 +19,11 @@ function Button({ children, disabled, to, type, onclick }) {
     return (
       <button
         onClick={() => {
-          //removing locale storage when loggign in
+          //check userSlice for localeStorage also
+          //removing locale storage when loggign out
           localStorage.removeItem("username");
+          //updating user reducer so we can show the user change immediatly, if we didnt gonna be shown only when page re render
           dispatch(updateName(""));
-          // localStorage.setItem("username", name);
         }}
         className={styles[type]}
       >

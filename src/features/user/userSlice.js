@@ -25,6 +25,7 @@ async function fetchAddress() {
 */
 
 //geting  username value from localeStorage
+//we setted this value in UserName.jsx
 const storedValue = localStorage.getItem("username");
 
 //if we have username value form localStorage we gonna set initialState.username to that username from local storage
