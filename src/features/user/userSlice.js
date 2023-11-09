@@ -23,14 +23,22 @@ async function fetchAddress() {
   return { position, address };
 }
 */
-const initialState = { username: "" };
+
+//geting  username value from localeStorage
+const storedValue = localStorage.getItem("username");
+
+//if we have username value form localStorage we gonna set initialState.username to that username from local storage
+
+const initialState = { username: storedValue ? storedValue : "", cart: "" };
+
+console.log(storedValue);
 
 const userSlice = createSlice({
   name: "user",
   initialState: initialState,
   reducers: {
     updateName(state, action) {
-      state.name = action.payload;
+      state.username = action.payload;
     },
   },
 });
