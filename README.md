@@ -24,8 +24,6 @@ PizzaPortal is a web application that allows users to order pizza online. The pr
 - **Redux Toolkit:** A set of tools for efficient Redux development.
 - **Git and GitHub:** Version control system and platform for collaboration.
 - **Postman:** API development and testing tool for viewing API results
-- **Framer Motion:** A library for creating animations in React applications.
-
 
 ## Contributing
 Contributions are welcome! Feel free to open an issue or submit a pull request.
