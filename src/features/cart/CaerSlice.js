@@ -4,13 +4,13 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: {
     cart: [
-      {
-        PIZZAiD: 32,
-        name: "margherita",
-        quantity: 2,
-        unitPrice: 16,
-        totalPrice: 32,
-      },
+      // {
+      //   PIZZAiD: 32,
+      //   name: "margherita",
+      //   quantity: 2,
+      //   unitPrice: 16,
+      //   totalPrice: 32,
+      // },
     ],
   },
   reducers: {
@@ -51,3 +51,9 @@ export const {
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
+
+export const getTotalCartQuantity = (state) =>
+  state.cart.cart.reduce((sum, item) => sum + item.quantity, 0);
+
+export const getTotalCartPrice = (state) =>
+  state.cart.cart.reduce((sum, item) => sum + item.totalPrice, 0);
