@@ -4,8 +4,8 @@ import UserName from "../features/user/UserName";
 
 function Header() {
   return (
-    <header className="flex justify-between  border-b  border-stone-200 bg-yellow-500 px-4 py-3 text-lg  sm:px-6">
-      <Link to="/" className="tracking-[5px]">
+    <header className="flex items-center  justify-between border-b border-stone-200  bg-yellow-500 px-4 py-3 text-sm sm:px-6  md:text-xl">
+      <Link to="/" className="tracking-[1px]">
         PizzaPortal.
       </Link>
       <SearchOrder />
