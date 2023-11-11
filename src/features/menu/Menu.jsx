@@ -3,6 +3,7 @@ import { getMenu } from "../../services/apiRestaurant";
 import MenuItem from "./MenuItem";
 
 //#features/Menu.js
+
 function Menu() {
   const data = useLoaderData();
 

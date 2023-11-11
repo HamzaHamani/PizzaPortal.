@@ -1,18 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//------- check Cart.jsx for sending cart to localeStorage and handling Clear Cart button
+// recieving the cart from local storage
+const storedValue = JSON.parse(localStorage.getItem("cart"));
+
+let initialState;
+// if there is a cart in local storage, set it as the initial state ,
+if (storedValue) {
+  initialState = { cart: storedValue };
+  // else set the initial state to an empty array
+} else {
+  initialState = { cart: [] };
+}
+
 const cartSlice = createSlice({
   name: "cart",
-  initialState: {
-    cart: [
-      // {
-      //   PIZZAiD: 32,
-      //   name: "margherita",
-      //   quantity: 2,
-      //   unitPrice: 16,
-      //   totalPrice: 32,
-      // },
-    ],
-  },
+  initialState,
   reducers: {
     addItem: (state, action) => {
       //payLoad = newItem

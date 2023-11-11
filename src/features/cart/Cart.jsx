@@ -32,9 +32,19 @@ import { useDispatch } from "react-redux";
 
 function Cart() {
   const cart = useSelector(getCart);
-
   const username = useSelector((state) => state.user.username);
   const dispatch = useDispatch();
+
+  // creating a local storage for cart
+  //check caerSlice for local storage how we used it
+  if (cart.length == 0) console.log("yes");
+  else localStorage.setItem("cart", JSON.stringify(cart));
+
+  // clearing cart from local storage and in ui
+  function handleClearCart() {
+    localStorage.removeItem("cart");
+    dispatch(clearCart());
+  }
 
   if (!cart.length) return <EmptyCart />;
   return (
@@ -52,7 +62,7 @@ function Cart() {
           Order pizzas
         </Button>
         {/* <Link </Link> */}
-        <Button type={"secondary"} clearCart={() => dispatch(clearCart())}>
+        <Button type={"secondary"} clearCart={handleClearCart}>
           Clear cart
         </Button>
       </div>
