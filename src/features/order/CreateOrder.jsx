@@ -75,19 +75,27 @@ function CreateOrder() {
               defaultValue={user.adrees}
               required
             />
+
+            {user.status === "error" && (
+              <p className="text-xd mt-2 rounded-md bg-red-100 p-2 text-red-700">
+                {user.error}
+              </p>
+            )}
           </div>
-          <span className="absolute right-0 z-50">
-            <Button
-              disabled={isLoadingAddress}
-              type={"small"}
-              onClick={(e) => {
-                e.preventDefault();
-                dispatch(fetchAddress());
-              }}
-            >
-              Fetch Address
-            </Button>
-          </span>
+          {!user.position.latitude && !user.position.longitude && (
+            <span className="absolute right-0 top-0 z-50">
+              <Button
+                disabled={isLoadingAddress}
+                type={"small"}
+                onClick={(e) => {
+                  e.preventDefault();
+                  dispatch(fetchAddress());
+                }}
+              >
+                GET POSITION
+              </Button>
+            </span>
+          )}
         </div>
 
         <div className="mb-12 flex items-center gap-5">
@@ -100,13 +108,23 @@ function CreateOrder() {
             // onChange={(e) => setWithPriority(e.target.checked)}
           />
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
+          <input
+            type="hidden"
+            name="position"
+            value={
+              user.position.longitude && user.position.latitude
+                ? `${user.position.latitude}, ${user.position.longitude}`
+                : ""
+            }
+          />
+
           <label htmlFor="priority" className="font-medium">
             Want to yo give your order priority?
           </label>
         </div>
 
         <div>
-          <Button type={"primary"} disabled={isLoading}>
+          <Button type={"primary"} disabled={isLoading || isLoadingAddress}>
             {isLoading ? "Packing order..." : `Order Now ${price}$`}
           </Button>
         </div>

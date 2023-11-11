@@ -1,16 +1,45 @@
-import { useRouteError } from "react-router-dom";
+import { useNavigate, useRouteError } from "react-router-dom";
 import LinkButton from "./LinkButton";
 
 function NotFound() {
   // const navigate = useNavigate();
-  const error = useRouteError();
   // console.log(error);
+  const navigate = useNavigate();
 
   return (
-    <div className="mx-auto mt-[100px] max-w-3xl rounded bg-red-200 py-10 text-center text-2xl text-red-900 shadow-lg  shadow-black/30">
-      <h1>Something went wrong 😢</h1>
-      <p>{error.message || error.data}</p>
-      <LinkButton to="-1">&larr; Go back</LinkButton>
+    <div className="mt-[-100px] h-screen bg-gray-200">
+      <div className="mx-auto mt-[100px] max-w-3xl  rounded   py-10 text-center text-2xl text-red-900  ">
+        <div className="mt-[100px] text-center">
+          <h1 className="mb-4 text-6xl font-semibold text-red-500">404</h1>
+          <p className="mb-4 text-lg text-gray-600">
+            Oops! Looks like you're lost.
+          </p>
+          <div className="animate-bounce">
+            <svg
+              className="mx-auto h-16 w-16 text-red-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+              ></path>
+            </svg>
+          </div>
+          <p className="mt-4 text-gray-600">
+            Let's get you back{" "}
+            <span
+              className="cursor-pointer text-yellow-600"
+              onClick={() => navigate("/")}
+            >
+              HOME
+            </span>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
