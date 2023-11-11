@@ -4,6 +4,9 @@ import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
 import Button from "../../ui/button";
 import { createOrder } from "../../services/apiRestaurant";
 import { useSelector } from "react-redux";
+import { clearCart, getCart, getTotalCartPrice } from "../cart/CaerSlice";
+import EmptyCart from "../cart/EmptyCart";
+import store from "../../store";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -11,38 +14,20 @@ const isValidPhone = (str) =>
     str,
   );
 isValidPhone;
-const fakeCart = [
-  {
-    pizzaId: 12,
-    name: "Mediterranean",
-    quantity: 2,
-    unitPrice: 16,
-    totalPrice: 32,
-  },
-  {
-    pizzaId: 6,
-    name: "Vegetale",
-    quantity: 1,
-    unitPrice: 13,
-    totalPrice: 13,
-  },
-  {
-    pizzaId: 11,
-    name: "Spinach and Mushroom",
-    quantity: 1,
-    unitPrice: 15,
-    totalPrice: 15,
-  },
-];
 
 function CreateOrder() {
   // const [withPriority, setWithPriority] = useState(false);
-  const cart = fakeCart;
+  const cart = useSelector(getCart);
   const navigation = useNavigation(); // to know when each is route is loading data so we show loader spinner, its universal, it knows each route if is loading
   const isLoading = navigation.state === "loading";
   cart;
   const formErrors = useActionData();
   const username = useSelector((state) => state.user.username);
+  const price = useSelector(getTotalCartPrice);
+  console.log(price);
+
+  console.log(isLoading);
+  if (cart.length === 0) return <EmptyCart />;
 
   return (
     <div className="px-5 py-6">
@@ -102,7 +87,7 @@ function CreateOrder() {
 
         <div>
           <Button type={"primary"} disabled={isLoading}>
-            {isLoading ? "Packing order" : "Order Now"}
+            {isLoading ? "Packing order..." : `Order Now ${price}$`}
           </Button>
         </div>
       </Form>
@@ -127,7 +112,7 @@ export async function CreateOrderAction({ request }) {
   if (Object.keys(errors).length > 0) return errors;
 
   const newOrder = await createOrder(order);
-
+  store.dispatch(clearCart());
   return redirect(`/order/${newOrder.id}`);
   // return null;
 }
