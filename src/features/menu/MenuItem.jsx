@@ -1,5 +1,5 @@
 import { formatCurrency } from "../../utils/helpers";
-import Button from "../../ui/button";
+import Button from "../../ui/Button";
 import { useDispatch } from "react-redux";
 import { addItem } from "../cart/CaerSlice";
 import DeleteItem from "../cart/DeleteItem";

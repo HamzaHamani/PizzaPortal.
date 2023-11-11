@@ -1,4 +1,4 @@
-import Button from "../../ui/button";
+import Button from "../../ui/Button";
 import { useDispatch } from "react-redux";
 import { deleteItem } from "./CaerSlice";
 

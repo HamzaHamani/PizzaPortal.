@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import LinkButton from "../../ui/LinkButton";
-import Button from "../../ui/button";
+import Button from "../../ui/Button";
 import CartItem from "./CartItem";
 import { clearCart, getCart } from "./CaerSlice";
 import EmptyCart from "./EmptyCart";
