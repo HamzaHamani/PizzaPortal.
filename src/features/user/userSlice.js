@@ -27,12 +27,12 @@ export const fetchAddress = createAsyncThunk("user/fetchAddress", async () => {
 
 //geting  username value from localeStorage
 //we setted this value in UserName.jsx
-// const storedValue = localStorage.getItem("username");
+const storedValue = localStorage.getItem("username");
 
 //if we have username value form localStorage we gonna set initialState.username to that username from local storage
 
 const initialState = {
-  username: "",
+  username: storedValue ? storedValue : "",
   status: "idle",
   position: {},
   address: "",
@@ -47,21 +47,19 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchAddress.pending),
-      (state, action) => {
+    builder
+      .addCase(fetchAddress.pending, (state) => {
         state.status = "loading";
-      };
-    builder.addCase(fetchAddress.fulfilled),
-      (state, action) => {
+      })
+      .addCase(fetchAddress.fulfilled, (state, action) => {
         state.status = "idle";
         state.position = action.payload.position;
         state.adrees = action.payload.address;
-      };
-    builder.addCase(fetchAddress.rejected),
-      (state, action) => {
+      })
+      .addCase(fetchAddress.rejected, (state, action) => {
         state.status = "error";
         state.error = action.error.message;
-      };
+      });
   },
 });
 

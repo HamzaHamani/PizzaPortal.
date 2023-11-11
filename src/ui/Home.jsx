@@ -10,7 +10,7 @@ function Home() {
   function handleLogOut() {
     //check userSlice for localeStorage also
     //removing locale storage when loggign out
-    console.log("delete");
+    // console.log("delete");
     localStorage.removeItem("username");
     //updating user reducer so we can show the user change immediatly, if we didnt gonna be shown only when page re render
     dispatch(updateName(""));

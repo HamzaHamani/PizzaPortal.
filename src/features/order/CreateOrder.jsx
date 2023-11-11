@@ -23,20 +23,21 @@ function CreateOrder() {
   const cart = useSelector(getCart);
   const navigation = useNavigation(); // to know when each is route is loading data so we show loader spinner, its universal, it knows each route if is loading
   const isLoading = navigation.state === "loading";
-  cart;
-  const formErrors = useActionData();
-  const username = useSelector((state) => state.user.username);
-  const price = useSelector(getTotalCartPrice);
-  console.log(price);
 
-  console.log(isLoading);
+  const formErrors = useActionData();
+  const user = useSelector((state) => state.user);
+  // console.log(address);
+  // console.log(username);
+
+  const price = useSelector(getTotalCartPrice);
+
+  const isLoadingAddress = user.status === "loading";
+
   if (cart.length === 0) return <EmptyCart />;
 
   return (
     <div className="px-5 py-6">
       <h2 className="mb-8 text-xl font-semibold">Ready to order? Lets go!</h2>
-
-      <button onClick={() => dispatch(fetchAddress())}>Fetch Address</button>
 
       <Form method="post">
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
@@ -46,7 +47,7 @@ function CreateOrder() {
             type="text"
             name="customer"
             required
-            defaultValue={username}
+            defaultValue={user.username}
           />
         </div>
 
@@ -63,16 +64,30 @@ function CreateOrder() {
           </div>
         </div>
 
-        <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <div className="relative mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
           <label className="sm:basis-40">Address</label>
           <div className="grow">
             <input
               className="input w-full"
               type="text"
               name="address"
+              disabled={isLoadingAddress}
+              defaultValue={user.adrees}
               required
             />
           </div>
+          <span className="absolute right-0 z-50">
+            <Button
+              disabled={isLoadingAddress}
+              type={"small"}
+              onClick={(e) => {
+                e.preventDefault();
+                dispatch(fetchAddress());
+              }}
+            >
+              Fetch Address
+            </Button>
+          </span>
         </div>
 
         <div className="mb-12 flex items-center gap-5">
