@@ -1,8 +1,11 @@
 # PizzaPortal
+PizzaPortal is a web application that allows users to order pizza online. The project is built using React, React Router v6.4, Tailwind CSS for styling, Local Storage for user login, Redux Toolkit for state management, and Framer Motion for small animations.
+
+
+## Screenshots
 ![cover](https://github.com/HamzaHamani/pizza-website/assets/102440542/3b38906b-e689-44f9-a275-2132cddc0b7d)
 
 
-PizzaPortal is a web application that allows users to order pizza online. The project is built using React, React Router v6.4, Tailwind CSS for styling, Local Storage for user login, Redux Toolkit for state management, and Framer Motion for small animations.
 
 ## Features
 
@@ -19,6 +22,13 @@ PizzaPortal is a web application that allows users to order pizza online. The pr
 - **React Router v6.4:** Declarative routing for React applications.
 - **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
 - **Redux Toolkit:** A set of tools for efficient Redux development.
+- **Git and GitHub:** Version control system and platform for collaboration.
+- **Postman:** API development and testing tool for viewing API results
 - **Framer Motion:** A library for creating animations in React applications.
 
+
+## Contributing
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+Happy pizza ordering! 🍕✨
 
