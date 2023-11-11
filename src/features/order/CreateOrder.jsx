@@ -22,8 +22,9 @@ function CreateOrder() {
   // const [withPriority, setWithPriority] = useState(false);
   const cart = useSelector(getCart);
   const navigation = useNavigation(); // to know when each is route is loading data so we show loader spinner, its universal, it knows each route if is loading
-  const isLoading = navigation.state === "loading";
+  const isLoading = navigation.state === "submitting";
 
+  console.log(navigation.state);
   const formErrors = useActionData();
   const user = useSelector((state) => state.user);
   // console.log(address);
@@ -127,6 +128,7 @@ function CreateOrder() {
           <Button type={"primary"} disabled={isLoading || isLoadingAddress}>
             {isLoading ? "Packing order..." : `Order Now ${price}$`}
           </Button>
+          {console.log(isLoading)}
         </div>
       </Form>
     </div>
