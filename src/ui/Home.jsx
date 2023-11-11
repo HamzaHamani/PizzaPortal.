@@ -17,11 +17,11 @@ function Home() {
   }
 
   return (
-    <div className="my-10 px-5 text-center sm:my-16">
-      <h1 className="mb-8  text-xl font-semibold tracking-wide md:text-4xl">
+    <div className="my-[110px]  px-5 text-center sm:my-16">
+      <h1 className="mb-8  mt-10 text-4xl font-semibold tracking-wide md:text-6xl">
         The best pizza.
         <br />
-        <span className="mt-1 tracking-wider text-yellow-500">
+        <span className=" tracking-wider text-yellow-500 sm:mt-5">
           Straight out of the oven, straight to you.
         </span>
       </h1>
