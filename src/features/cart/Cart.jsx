@@ -37,12 +37,9 @@ function Cart() {
 
   // creating a local storage for cart
   //check caerSlice for local storage how we used it
-  if (cart.length == 0) console.log("yes");
-  else localStorage.setItem("cart", JSON.stringify(cart));
 
   // clearing cart from local storage and in ui
   function handleClearCart() {
-    localStorage.removeItem("cart");
     dispatch(clearCart());
   }
 
@@ -54,7 +51,7 @@ function Cart() {
       <h2 className="mt-7 text-xl font-semibold">Your cart, {username}</h2>
       <ul className="mt-3 divide-y-2 divide-stone-200 border-b">
         {cart.map((item) => (
-          <CartItem item={item} key={item.name} />
+          <CartItem item={item} key={item.pizzaId} />
         ))}
       </ul>
       <div className="mt-6 space-x-2">

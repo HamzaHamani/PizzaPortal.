@@ -32,8 +32,6 @@ const storedValue = localStorage.getItem("username");
 
 const initialState = { username: storedValue ? storedValue : "", cart: "" };
 
-console.log(storedValue);
-
 const userSlice = createSlice({
   name: "user",
   initialState: initialState,
