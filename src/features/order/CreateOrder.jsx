@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import { clearCart, getCart, getTotalCartPrice } from "../cart/CaerSlice";
 import EmptyCart from "../cart/EmptyCart";
 import store from "../../store";
+import { fetchAddress } from "../user/userSlice";
+import { useDispatch } from "react-redux";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -16,6 +18,7 @@ const isValidPhone = (str) =>
 isValidPhone;
 
 function CreateOrder() {
+  const dispatch = useDispatch();
   // const [withPriority, setWithPriority] = useState(false);
   const cart = useSelector(getCart);
   const navigation = useNavigation(); // to know when each is route is loading data so we show loader spinner, its universal, it knows each route if is loading
@@ -32,6 +35,8 @@ function CreateOrder() {
   return (
     <div className="px-5 py-6">
       <h2 className="mb-8 text-xl font-semibold">Ready to order? Lets go!</h2>
+
+      <button onClick={() => dispatch(fetchAddress())}>Fetch Address</button>
 
       <Form method="post">
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
