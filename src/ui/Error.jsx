@@ -1,5 +1,4 @@
-import { useNavigate, useRouteError } from "react-router-dom";
-import LinkButton from "./LinkButton";
+import { useNavigate } from "react-router-dom";
 
 function NotFound() {
   // const navigate = useNavigate();
